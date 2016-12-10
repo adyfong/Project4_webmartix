@@ -21941,7 +21941,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -21949,6 +21949,10 @@
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _QuestionForm = __webpack_require__(/*! ../QuestionForm/QuestionForm.jsx */ 180);
+	
+	var _QuestionForm2 = _interopRequireDefault(_QuestionForm);
 	
 	__webpack_require__(/*! ./App.css */ 179);
 	
@@ -21961,30 +21965,60 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var App = function (_React$Component) {
-	    _inherits(App, _React$Component);
+	  _inherits(App, _React$Component);
 	
-	    function App() {
-	        _classCallCheck(this, App);
+	  function App(props) {
+	    _classCallCheck(this, App);
 	
-	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+	
+	    _this.state = {
+	      //what is different with{} or []
+	      questions: {}
+	    };
+	
+	    // this.addTask = this.addTask.bind(this);
+	    return _this;
+	  }
+	
+	  // addTask(name, desc){
+	  //   //... the spread operator it clones so when you change the clone it
+	
+	  //   //supply an object fetch from localhost objst has headers.
+	
+	  //   // const newState = {...this.state.tasks}
+	  //  // Post the db, this nameand desc
+	  //  // .then update the state
+	
+	  //  // this.setState({tasks: newState})
+	  // AjaxAdapter.createTask({name, desc})
+	  // .then(newTask => {
+	  //        const newState = {...this.state.tasks};
+	  //        newState[newTask.id] =newTask
+	  //        this.setState({tasks: newState})
+	  //     })
+	  //      .catch((error) => {
+	  //        throw error;
+	  //    });
+	  //
+	  // <TaskForm addTask={this.addTask} />
+	
+	  // }
+	
+	
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_QuestionForm2.default, null),
+	        _react2.default.createElement('iframe', { src: 'http://www.w3schools.com', width: '555', height: '600' })
+	      );
 	    }
+	  }]);
 	
-	    _createClass(App, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'Rendring Text'
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return App;
+	  return App;
 	}(_react2.default.Component);
 	
 	exports.default = App;
@@ -21997,6 +22031,65 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 180 */
+/*!******************************************************!*\
+  !*** ./src/components/QuestionForm/QuestionForm.jsx ***!
+  \******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = QuestionForm;
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function QuestionForm(prop) {
+	  //   const handleSubmit = (event) => {
+	  //     // stop the event from leaving the form
+	  //     event.preventDefault();
+	  //     const myForm = event.target;
+	
+	  //     props.addTask(
+	  //       myForm.taskName.value,
+	  //       myForm.taskDesc.value
+	  //     );
+	  //     return false;
+	  //   };
+	
+	  return (
+	    //     <form className="form-inline" onSubmit={handleSubmit}>
+	
+	    _react2.default.createElement(
+	      "div",
+	      { className: "form-group" },
+	      _react2.default.createElement(
+	        "label",
+	        { className: "sr-only", htmlFor: "taskName" },
+	        "Task Name"
+	      ),
+	      _react2.default.createElement("input", { type: "text", className: "form-control input-lg", name: "taskName", placeholder: "Task Name" })
+	    )
+	
+	    //       <div className="form-group">
+	    //         <label className="sr-only" htmlFor="taskDesc">Task Description</label>
+	    //         <input type="text" className="form-control input-lg" name="taskDesc" placeholder="Task Description" />
+	    //       </div>
+	
+	
+	    //       <button type="submit" className="btn btn-danger btn-lg">Add Task</button>
+	    //     </form>
+	
+	  );
+	}
 
 /***/ }
 /******/ ]);

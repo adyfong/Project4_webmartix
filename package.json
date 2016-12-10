@@ -7,7 +7,7 @@
     "clean": "rm -rf dist && rm -rf node_modules",
     "heroku-prebuild": "scripts/deployment_react.sh",
     "heroku-postbuild": "scripts/deployment_cleanup.sh",
-    "start": "node server.js",
+    "start": "node app.js",
     "rebuild": "webpack -d --progress",
     "watch": "webpack -d --progress --watch"
   },
@@ -22,7 +22,7 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
-   "devDependencies": {
+  "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
@@ -47,7 +47,13 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3"
-  }
-
-
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adyfong/Project4_webmartix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adyfong/Project4_webmartix/issues"
+  },
+  "homepage": "https://github.com/adyfong/Project4_webmartix#readme"
 }
