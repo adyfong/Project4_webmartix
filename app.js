@@ -1,5 +1,5 @@
 'use strict';
-
+const isDev = !('NODE_ENV' in process.env) && require('dotenv').config() && true;
 // regular stuff
 const express     = require('express');
 const bodyParser  = require('body-parser');
@@ -8,12 +8,14 @@ const path        = require('path');
 
 // This tests to see if we have NODE_ENV in our environment.
 // Only load the dotenv if we need it.
-const isDev = !('NODE_ENV' in process.env) && require('dotenv').config() && true;
+
 
 const app    = express();
 const PORT   = process.argv[2] || process.env.port || 3000;
 
-const adminRouter = require('./routes/index.js')
+//const Router required
+const adminRouter = require('./routes/index.js');
+const apiRouter = require('./routes/api.js');
 
 // set up some logging
 app.use(logger(isDev ? 'dev' : 'common'));
@@ -32,6 +34,7 @@ app.use((err, req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/admin', adminRouter);
+app.use('/api', apiRouter);
 
 // Let's go!
 app.listen(PORT);

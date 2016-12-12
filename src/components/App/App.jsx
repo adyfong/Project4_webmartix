@@ -1,5 +1,6 @@
 import React  from 'react';
-import QuestionForm  from '../QuestionForm/QuestionForm.jsx';
+import QuestionList  from '../QuestionForm/QuestionList.jsx';
+import AjaxAdapter from '../../helpers/AjaxAdapter';
 import './App.css';
 
 
@@ -7,16 +8,38 @@ import './App.css';
 export default class App extends React.Component {
 
 
-constructor(props) {
-    super();
+ constructor(props) {
+    super(props);
+    //set whatever initial states that will be changed or modified over time
+      this.state = {
+      questions: [],
+      selectedOption: ['1', '1', '1', '1', '1'],
+    }
+  }
 
-    this.state = {
-   //what is different with{} or []
-      questions: {},
-    };
 
-  // this.addTask = this.addTask.bind(this);
+getQuestions() {
+  fetch('/api/questions/')
+    .then(data => data.json())
+    .then(data => {
+      this.setState({questions: data});
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
+
+setOption(question_id, value) {
+  console.log('HI WE SRE IN setOption in App.jsx')
+  console.log('question_id ' + question_id)
+  // this.setState({selectedOption[question_id]: value})
+  // http://stackoverflow.com/questions/29537299/react-how-do-i-update-state-item1-on-setstate-with-jsfiddle
+  this.state.selectedOption[question_id] = value;
+  this.forceUpdate()
+}
+
+//   this.addTask = this.addTask.bind(this);
+// }
 
 
 
@@ -48,9 +71,14 @@ constructor(props) {
 
 render() {
     return (
-      <div>
-       <QuestionForm />
-       <iframe src="http://www.w3schools.com" width="555" height="600"></iframe>
+      <div className="container">
+       <iframe className="boxcontainer" src="http://www.w3schools.com" width="555" height="600"></iframe>
+       <QuestionList className="boxcontainer"
+       getQuestions={this.getQuestions.bind(this)}
+       questions={this.state.questions}
+       selectedOption={this.state.selectedOption}
+       setOption={this.setOption.bind(this)}
+       />
       </div>
   );
  }

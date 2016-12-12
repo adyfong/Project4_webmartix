@@ -21950,11 +21950,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _QuestionForm = __webpack_require__(/*! ../QuestionForm/QuestionForm.jsx */ 180);
+	var _QuestionList = __webpack_require__(/*! ../QuestionForm/QuestionList.jsx */ 179);
 	
-	var _QuestionForm2 = _interopRequireDefault(_QuestionForm);
+	var _QuestionList2 = _interopRequireDefault(_QuestionList);
 	
-	__webpack_require__(/*! ./App.css */ 179);
+	var _AjaxAdapter = __webpack_require__(/*! ../../helpers/AjaxAdapter */ 182);
+	
+	var _AjaxAdapter2 = _interopRequireDefault(_AjaxAdapter);
+	
+	__webpack_require__(/*! ./App.css */ 183);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21970,50 +21974,82 @@
 	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+	    //set whatever initial states that will be changed or modified over time
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
 	    _this.state = {
-	      //what is different with{} or []
-	      questions: {}
+	      questions: [],
+	      selectedOption: ['1', '1', '1', '1', '1']
 	    };
-	
-	    // this.addTask = this.addTask.bind(this);
 	    return _this;
 	  }
 	
-	  // addTask(name, desc){
-	  //   //... the spread operator it clones so when you change the clone it
-	
-	  //   //supply an object fetch from localhost objst has headers.
-	
-	  //   // const newState = {...this.state.tasks}
-	  //  // Post the db, this nameand desc
-	  //  // .then update the state
-	
-	  //  // this.setState({tasks: newState})
-	  // AjaxAdapter.createTask({name, desc})
-	  // .then(newTask => {
-	  //        const newState = {...this.state.tasks};
-	  //        newState[newTask.id] =newTask
-	  //        this.setState({tasks: newState})
-	  //     })
-	  //      .catch((error) => {
-	  //        throw error;
-	  //    });
-	  //
-	  // <TaskForm addTask={this.addTask} />
-	
-	  // }
-	
-	
 	  _createClass(App, [{
+	    key: 'getQuestions',
+	    value: function getQuestions() {
+	      var _this2 = this;
+	
+	      fetch('/api/questions/').then(function (data) {
+	        return data.json();
+	      }).then(function (data) {
+	        _this2.setState({ questions: data });
+	      }).catch(function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'setOption',
+	    value: function setOption(question_id, value) {
+	      console.log('HI WE SRE IN setOption in App.jsx');
+	      console.log('question_id ' + question_id);
+	      // this.setState({selectedOption[question_id]: value})
+	      // http://stackoverflow.com/questions/29537299/react-how-do-i-update-state-item1-on-setstate-with-jsfiddle
+	      this.state.selectedOption[question_id] = value;
+	      this.forceUpdate();
+	    }
+	
+	    //   this.addTask = this.addTask.bind(this);
+	    // }
+	
+	
+	    // addTask(name, desc){
+	    //   //... the spread operator it clones so when you change the clone it
+	
+	    //   //supply an object fetch from localhost objst has headers.
+	
+	    //   // const newState = {...this.state.tasks}
+	    //  // Post the db, this nameand desc
+	    //  // .then update the state
+	
+	    //  // this.setState({tasks: newState})
+	    // AjaxAdapter.createTask({name, desc})
+	    // .then(newTask => {
+	    //        const newState = {...this.state.tasks};
+	    //        newState[newTask.id] =newTask
+	    //        this.setState({tasks: newState})
+	    //     })
+	    //      .catch((error) => {
+	    //        throw error;
+	    //    });
+	    //
+	    // <TaskForm addTask={this.addTask} />
+	
+	    // }
+	
+	
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
-	        _react2.default.createElement(_QuestionForm2.default, null),
-	        _react2.default.createElement('iframe', { src: 'http://www.w3schools.com', width: '555', height: '600' })
+	        { className: 'container' },
+	        _react2.default.createElement('iframe', { className: 'boxcontainer', src: 'http://www.w3schools.com', width: '555', height: '600' }),
+	        _react2.default.createElement(_QuestionList2.default, { className: 'boxcontainer',
+	          getQuestions: this.getQuestions.bind(this),
+	          questions: this.state.questions,
+	          selectedOption: this.state.selectedOption,
+	          setOption: this.setOption.bind(this)
+	        })
 	      );
 	    }
 	  }]);
@@ -22025,26 +22061,143 @@
 
 /***/ },
 /* 179 */
-/*!************************************!*\
-  !*** ./src/components/App/App.css ***!
-  \************************************/
-/***/ function(module, exports) {
+/*!******************************************************!*\
+  !*** ./src/components/QuestionForm/QuestionList.jsx ***!
+  \******************************************************/
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _QuestionRate = __webpack_require__(/*! ./QuestionRate.jsx */ 180);
+	
+	var _QuestionRate2 = _interopRequireDefault(_QuestionRate);
+	
+	__webpack_require__(/*! ./QuestionList.css */ 181);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var QuestionList = function (_React$Component) {
+	    _inherits(QuestionList, _React$Component);
+	
+	    function QuestionList() {
+	        _classCallCheck(this, QuestionList);
+	
+	        return _possibleConstructorReturn(this, (QuestionList.__proto__ || Object.getPrototypeOf(QuestionList)).apply(this, arguments));
+	    }
+	
+	    _createClass(QuestionList, [{
+	        key: 'componentWillMount',
+	
+	        // (function or class???)
+	
+	        value: function componentWillMount() {
+	            this.props.getQuestions();
+	            console.log('inside mount the values of props --> ', this.props);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+	
+	            return _react2.default.createElement(
+	                'form',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'containerRight' },
+	                    this.props.questions.map(function (qID, i) {
+	                        console.log('qID.id ' + qID.id);
+	
+	                        return _react2.default.createElement(
+	                            'div',
+	                            { className: 'ListText', key: i },
+	                            _react2.default.createElement(
+	                                'h1',
+	                                null,
+	                                ' This survey is for "http://www.w3schools.com" '
+	                            ),
+	                            _react2.default.createElement(
+	                                'h2',
+	                                null,
+	                                qID.q1
+	                            ),
+	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[0],
+	                                setOption: _this2.props.setOption,
+	                                question_id: '0' }),
+	                            _react2.default.createElement(
+	                                'h2',
+	                                null,
+	                                qID.q2
+	                            ),
+	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[1],
+	                                setOption: _this2.props.setOption,
+	                                question_id: '1' }),
+	                            _react2.default.createElement(
+	                                'h1',
+	                                null,
+	                                qID.q3
+	                            ),
+	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[2],
+	                                setOption: _this2.props.setOption,
+	                                question_id: '2' }),
+	                            _react2.default.createElement(
+	                                'h1',
+	                                null,
+	                                qID.q4
+	                            ),
+	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[3],
+	                                setOption: _this2.props.setOption,
+	                                question_id: '3' }),
+	                            _react2.default.createElement(
+	                                'h1',
+	                                null,
+	                                qID.q5
+	                            ),
+	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[4],
+	                                setOption: _this2.props.setOption,
+	                                question_id: '4' })
+	                        );
+	                    })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return QuestionList;
+	}(_react2.default.Component);
+	
+	exports.default = QuestionList;
 
 /***/ },
 /* 180 */
 /*!******************************************************!*\
-  !*** ./src/components/QuestionForm/QuestionForm.jsx ***!
+  !*** ./src/components/QuestionForm/QuestionRate.jsx ***!
   \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = QuestionForm;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(/*! react */ 1);
 	
@@ -22052,44 +22205,235 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function QuestionForm(prop) {
-	  //   const handleSubmit = (event) => {
-	  //     // stop the event from leaving the form
-	  //     event.preventDefault();
-	  //     const myForm = event.target;
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	  //     props.addTask(
-	  //       myForm.taskName.value,
-	  //       myForm.taskDesc.value
-	  //     );
-	  //     return false;
-	  //   };
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	  return (
-	    //     <form className="form-inline" onSubmit={handleSubmit}>
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	    _react2.default.createElement(
-	      "div",
-	      { className: "form-group" },
-	      _react2.default.createElement(
-	        "label",
-	        { className: "sr-only", htmlFor: "taskName" },
-	        "Task Name"
-	      ),
-	      _react2.default.createElement("input", { type: "text", className: "form-control input-lg", name: "taskName", placeholder: "Task Name" })
-	    )
+	var QuestionRate = function (_React$Component) {
+	  _inherits(QuestionRate, _React$Component);
 	
-	    //       <div className="form-group">
-	    //         <label className="sr-only" htmlFor="taskDesc">Task Description</label>
-	    //         <input type="text" className="form-control input-lg" name="taskDesc" placeholder="Task Description" />
-	    //       </div>
+	  function QuestionRate(props) {
+	    _classCallCheck(this, QuestionRate);
 	
+	    var _this = _possibleConstructorReturn(this, (QuestionRate.__proto__ || Object.getPrototypeOf(QuestionRate)).call(this, props));
 	
-	    //       <button type="submit" className="btn btn-danger btn-lg">Add Task</button>
-	    //     </form>
+	    _this.handleOptionChange = _this.handleOptionChange.bind(_this);
+	    return _this;
+	  }
 	
-	  );
-	}
+	  _createClass(QuestionRate, [{
+	    key: 'handleOptionChange',
+	    value: function handleOptionChange(event) {
+	      console.log('HI I AM IN handleOptionChange e.t.v ' + event.target.value);
+	      this.props.setOption(this.props.question_id, event.target.value);
+	      console.log('t.p.s ' + this.props.selectedOption);
+	    }
+	  }, {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      console.log('QuestionRate inside mount the values of props --> ', this.props);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      console.log('this.props.selectedOption ' + this.props.selectedOption);
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'radio' },
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            _react2.default.createElement('input', { type: 'radio', value: '1',
+	              checked: this.props.selectedOption === '1',
+	              onChange: this.handleOptionChange
+	            }),
+	            '1'
+	          ),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            _react2.default.createElement('input', { type: 'radio', value: '2',
+	              checked: this.props.selectedOption === '2',
+	              onChange: this.handleOptionChange
+	            }),
+	            '2'
+	          ),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            _react2.default.createElement('input', { type: 'radio', value: '3',
+	              checked: this.props.selectedOption === '3',
+	              onChange: this.handleOptionChange
+	            }),
+	            '3'
+	          ),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            _react2.default.createElement('input', { type: 'radio', value: '4',
+	              checked: this.props.selectedOption === '4',
+	              onChange: this.handleOptionChange
+	            }),
+	            '4'
+	          ),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            _react2.default.createElement('input', { type: 'radio', value: '5',
+	              checked: this.props.selectedOption === '5',
+	              onChange: this.handleOptionChange
+	            }),
+	            '5'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return QuestionRate;
+	}(_react2.default.Component);
+	
+	exports.default = QuestionRate;
+
+/***/ },
+/* 181 */
+/*!******************************************************!*\
+  !*** ./src/components/QuestionForm/QuestionList.css ***!
+  \******************************************************/
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 182 */
+/*!*************************************!*\
+  !*** ./src/helpers/AjaxAdapter.jsx ***!
+  \*************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var AjaxFunctions = function () {
+	  function AjaxFunctions() {
+	    _classCallCheck(this, AjaxFunctions);
+	  }
+	
+	  _createClass(AjaxFunctions, null, [{
+	    key: 'getDrawings',
+	    value: function getDrawings() {
+	      return fetch('/paint', {
+	        method: 'GET'
+	      }).then(function (r) {
+	        return r.json();
+	      });
+	    }
+	    // ajax gets all drawing into db
+	
+	  }, {
+	    key: 'addDrawing',
+	    value: function addDrawing(drawing) {
+	      return fetch('/paint', {
+	        headers: {
+	          'Content-Type': 'application/json'
+	        },
+	        method: 'POST',
+	        body: JSON.stringify(drawing)
+	      }).then(function (r) {
+	        return r.json();
+	      });
+	    }
+	    // ajax puts new drawing into db
+	
+	  }, {
+	    key: 'getDrawing',
+	    value: function getDrawing(id) {
+	      return fetch('/paint/' + id, {
+	        method: 'GET'
+	      }).then(function (r) {
+	        return r.json();
+	      });
+	    }
+	    // ajax gets one drawing into db based on id
+	
+	  }, {
+	    key: 'deleteDrawing',
+	    value: function deleteDrawing(id) {
+	      return fetch('/paint/' + id, {
+	        method: 'DELETE'
+	      });
+	    }
+	    // ajax deletes one drawing into db based on id
+	
+	  }, {
+	    key: 'getImage',
+	    value: function getImage(id) {
+	      return document.querySelector('#canvas' + id);
+	    }
+	    // ajax gets one drawing image on the canvas and saves to db based on id
+	
+	  }, {
+	    key: 'signUp',
+	    value: function signUp(user, pass) {
+	      console.log(user, pass);
+	      return fetch('/users', {
+	        headers: {
+	          'Content-Type': 'application/json'
+	        },
+	        method: 'POST',
+	        body: JSON.stringify({
+	          username: user,
+	          password: pass
+	        })
+	      });
+	    }
+	    // ajax that puts user info into user table based on username and password
+	
+	  }, {
+	    key: 'logIn',
+	    value: function logIn(user, pass) {
+	      return fetch('/auth', {
+	        headers: {
+	          'Content-Type': 'application/json'
+	        },
+	        method: 'POST',
+	        body: JSON.stringify({
+	          username: user,
+	          password: pass
+	        })
+	      }).then(function (r) {
+	        return r.json();
+	      });
+	    }
+	    // ajax that logs user into account using info based on username and password in user table
+	
+	  }]);
+	
+	  return AjaxFunctions;
+	}();
+	
+	exports.default = AjaxFunctions;
+
+/***/ },
+/* 183 */
+/*!************************************!*\
+  !*** ./src/components/App/App.css ***!
+  \************************************/
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);
