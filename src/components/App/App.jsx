@@ -29,6 +29,23 @@ getQuestions() {
     });
 }
 
+addAnswers(survey_id, selectedOption) {
+      console.log('inside addAnswer' + survey_id, selectedOption);
+      fetch('/api/answers', {
+      method:  'POST',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify({survey_id: survey_id,
+                            selectedOption: selectedOption})
+    })
+    .then(() => {
+      console.log('added answer');
+    })
+    .catch(err => console.log(error));
+}
+
+
 setOption(question_id, value) {
   console.log('HI WE SRE IN setOption in App.jsx')
   console.log('question_id ' + question_id)
@@ -37,6 +54,7 @@ setOption(question_id, value) {
   this.state.selectedOption[question_id] = value;
   this.forceUpdate()
 }
+
 
 //   this.addTask = this.addTask.bind(this);
 // }
@@ -78,6 +96,7 @@ render() {
        questions={this.state.questions}
        selectedOption={this.state.selectedOption}
        setOption={this.setOption.bind(this)}
+       addAnswers={this.addAnswers.bind(this)}
        />
       </div>
   );

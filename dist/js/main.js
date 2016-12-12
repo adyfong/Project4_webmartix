@@ -21998,6 +21998,23 @@
 	      });
 	    }
 	  }, {
+	    key: 'addAnswers',
+	    value: function addAnswers(survey_id, selectedOption) {
+	      console.log('inside addAnswer' + survey_id, selectedOption);
+	      fetch('/api/answers', {
+	        method: 'POST',
+	        headers: {
+	          'Content-type': 'application/json; charset=UTF-8'
+	        },
+	        body: JSON.stringify({ survey_id: survey_id,
+	          selectedOption: selectedOption })
+	      }).then(function () {
+	        console.log('added answer');
+	      }).catch(function (err) {
+	        return console.log(error);
+	      });
+	    }
+	  }, {
 	    key: 'setOption',
 	    value: function setOption(question_id, value) {
 	      console.log('HI WE SRE IN setOption in App.jsx');
@@ -22048,7 +22065,8 @@
 	          getQuestions: this.getQuestions.bind(this),
 	          questions: this.state.questions,
 	          selectedOption: this.state.selectedOption,
-	          setOption: this.setOption.bind(this)
+	          setOption: this.setOption.bind(this),
+	          addAnswers: this.addAnswers.bind(this)
 	        })
 	      );
 	    }
@@ -22069,7 +22087,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -22093,93 +22111,111 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var QuestionList = function (_React$Component) {
-	    _inherits(QuestionList, _React$Component);
+	  _inherits(QuestionList, _React$Component);
 	
-	    function QuestionList() {
-	        _classCallCheck(this, QuestionList);
+	  // (function or class???)
 	
-	        return _possibleConstructorReturn(this, (QuestionList.__proto__ || Object.getPrototypeOf(QuestionList)).apply(this, arguments));
+	
+	  function QuestionList(props) {
+	    _classCallCheck(this, QuestionList);
+	
+	    var _this = _possibleConstructorReturn(this, (QuestionList.__proto__ || Object.getPrototypeOf(QuestionList)).call(this, props));
+	
+	    _this.handleFormSubmit = _this.handleFormSubmit.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(QuestionList, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.props.getQuestions();
+	      console.log('inside mount the values of props --> ', this.props);
 	    }
+	  }, {
+	    key: 'handleFormSubmit',
+	    value: function handleFormSubmit(event) {
+	      event.preventDefault();
+	      console.log('HI I AM IN handleFormSubmit' + event.target.value);
+	      console.log('selection ' + this.props.selectedOption);
 	
-	    _createClass(QuestionList, [{
-	        key: 'componentWillMount',
+	      this.props.addAnswers(this.props.questions.id, this.props.selectedOption);
+	      return false;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
 	
-	        // (function or class???)
-	
-	        value: function componentWillMount() {
-	            this.props.getQuestions();
-	            console.log('inside mount the values of props --> ', this.props);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
+	      return _react2.default.createElement(
+	        'form',
+	        { className: 'rate-submit', onSubmit: this.handleFormSubmit },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'containerRight' },
+	          this.props.questions.map(function (qID, i) {
+	            console.log('qID.id ' + qID.id);
 	
 	            return _react2.default.createElement(
-	                'form',
+	              'div',
+	              { className: 'ListText', key: i },
+	              _react2.default.createElement(
+	                'h1',
 	                null,
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'containerRight' },
-	                    this.props.questions.map(function (qID, i) {
-	                        console.log('qID.id ' + qID.id);
-	
-	                        return _react2.default.createElement(
-	                            'div',
-	                            { className: 'ListText', key: i },
-	                            _react2.default.createElement(
-	                                'h1',
-	                                null,
-	                                ' This survey is for "http://www.w3schools.com" '
-	                            ),
-	                            _react2.default.createElement(
-	                                'h2',
-	                                null,
-	                                qID.q1
-	                            ),
-	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[0],
-	                                setOption: _this2.props.setOption,
-	                                question_id: '0' }),
-	                            _react2.default.createElement(
-	                                'h2',
-	                                null,
-	                                qID.q2
-	                            ),
-	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[1],
-	                                setOption: _this2.props.setOption,
-	                                question_id: '1' }),
-	                            _react2.default.createElement(
-	                                'h1',
-	                                null,
-	                                qID.q3
-	                            ),
-	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[2],
-	                                setOption: _this2.props.setOption,
-	                                question_id: '2' }),
-	                            _react2.default.createElement(
-	                                'h1',
-	                                null,
-	                                qID.q4
-	                            ),
-	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[3],
-	                                setOption: _this2.props.setOption,
-	                                question_id: '3' }),
-	                            _react2.default.createElement(
-	                                'h1',
-	                                null,
-	                                qID.q5
-	                            ),
-	                            _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[4],
-	                                setOption: _this2.props.setOption,
-	                                question_id: '4' })
-	                        );
-	                    })
-	                )
+	                ' This survey is for "http://www.w3schools.com" '
+	              ),
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                qID.q1
+	              ),
+	              _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[0],
+	                setOption: _this2.props.setOption,
+	                question_id: '0' }),
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                qID.q2
+	              ),
+	              _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[1],
+	                setOption: _this2.props.setOption,
+	                question_id: '1' }),
+	              _react2.default.createElement(
+	                'h1',
+	                null,
+	                qID.q3
+	              ),
+	              _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[2],
+	                setOption: _this2.props.setOption,
+	                question_id: '2' }),
+	              _react2.default.createElement(
+	                'h1',
+	                null,
+	                qID.q4
+	              ),
+	              _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[3],
+	                setOption: _this2.props.setOption,
+	                question_id: '3' }),
+	              _react2.default.createElement(
+	                'h1',
+	                null,
+	                qID.q5
+	              ),
+	              _react2.default.createElement(_QuestionRate2.default, { selectedOption: _this2.props.selectedOption[4],
+	                setOption: _this2.props.setOption,
+	                question_id: '4' }),
+	              _react2.default.createElement(
+	                'button',
+	                { className: 'btn', type: 'submit' },
+	                'SAVE'
+	              )
 	            );
-	        }
-	    }]);
+	          })
+	        )
+	      );
+	    }
+	  }]);
 	
-	    return QuestionList;
+	  return QuestionList;
 	}(_react2.default.Component);
 	
 	exports.default = QuestionList;

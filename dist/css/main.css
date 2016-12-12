@@ -5,6 +5,18 @@
 }
 
 
+.btn {
+  position: absolute;
+  right: 200px;
+  top: 550px;
+ color: white;
+ font-size: 18px;
+ border-radius: 4px;
+ width: 75px;
+ height: 45px;
+ text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+ background: rgb(78, 78, 78);
+}
 .container {
   display: flex;
   flex-direction: row;
