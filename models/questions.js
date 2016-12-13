@@ -10,6 +10,18 @@ function getQuestions(req, res, next) {
     .catch(error => next(error));
 }
 
+
+function getAnswers(req, res, next) {
+  db.any('SELECT a1, a2, a3, a4, a5 FROM answers WHERE user_id=3;')
+    .then(answers => {
+      res.answers = answers;
+      next();
+    })
+    .catch(error => next(error));
+}
+
+
+
 function addAnswers(req,res, next) {
    console.log('Inside Model' + req.body.selectedOption);
    console.log('Inside Model Array' + req.body.selectedOption[0]);
@@ -25,5 +37,6 @@ function addAnswers(req,res, next) {
 
 module.exports = {
   getQuestions,
+  getAnswers,
   addAnswers
 }

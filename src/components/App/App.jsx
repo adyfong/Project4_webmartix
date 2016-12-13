@@ -1,8 +1,9 @@
 import React  from 'react';
 import QuestionList  from '../QuestionForm/QuestionList.jsx';
 import AjaxAdapter from '../../helpers/AjaxAdapter';
+import Chart from '../Chart/Chart.jsx';
 import './App.css';
-
+// import { Link } from 'react-router';
 
 
 export default class App extends React.Component {
@@ -13,6 +14,7 @@ export default class App extends React.Component {
     //set whatever initial states that will be changed or modified over time
       this.state = {
       questions: [],
+      answers: [],
       selectedOption: ['1', '1', '1', '1', '1'],
     }
   }
@@ -28,6 +30,22 @@ getQuestions() {
       console.log(error);
     });
 }
+
+
+getAnswers() {
+  console.log('getAnswers')
+  fetch('/api/answers/')
+    .then(data => data.json())
+    .then(data => {
+      console.log('answer from databd' + data);
+      this.setState({answers: data});
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+
 
 addAnswers(survey_id, selectedOption) {
       console.log('inside addAnswer' + survey_id, selectedOption);
@@ -90,6 +108,12 @@ setOption(question_id, value) {
 render() {
     return (
       <div className="container">
+
+       <Chart
+        getAnswers={this.getAnswers.bind(this)}
+        answers={this.state.answers}
+        />
+
        <iframe className="boxcontainer" src="http://www.w3schools.com" width="555" height="600"></iframe>
        <QuestionList className="boxcontainer"
        getQuestions={this.getQuestions.bind(this)}
@@ -98,6 +122,8 @@ render() {
        setOption={this.setOption.bind(this)}
        addAnswers={this.addAnswers.bind(this)}
        />
+
+
       </div>
   );
  }
