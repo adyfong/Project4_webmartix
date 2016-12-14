@@ -1,5 +1,5 @@
 import React  from 'react';
-import QuestionList  from '../QuestionForm/QuestionList.jsx';
+import QuestionNoRate  from '../QuestionForm/QuestionNoRate.jsx';
 import Chart from '../Chart/Chart.jsx';
 import './ChartForm.css';
 
@@ -76,12 +76,9 @@ render() {
         answers={this.state.answers}
         />
 
-  <QuestionList className="boxcontainer"
+  <QuestionNoRate className="boxcontainer"
        getQuestions={this.getQuestions.bind(this)}
        questions={this.state.questions}
-       selectedOption={this.state.selectedOption}
-       setOption={this.setOption.bind(this)}
-       addAnswers={this.addAnswers.bind(this)}
        />
 
 

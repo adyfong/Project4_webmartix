@@ -1,6 +1,8 @@
 import React  from 'react';
 import QuestionList  from '../QuestionForm/QuestionList.jsx';
 import AjaxAdapter from '../../helpers/AjaxAdapter';
+import UrlLink from '../UrlLink/UrlLink.jsx';
+import { Link } from 'react-router';
 import './SurveyForm.css';
 // import { Link } from 'react-router';
 
@@ -13,9 +15,28 @@ export default class SurveyForm extends React.Component {
       this.state = {
       questions: [],
       answers: [],
+      holderUrl: "",
+      url: "http://www.w3schools.com",
+      holderUrl: "",
       selectedOption: ['1', '1', '1', '1', '1'],
     }
   }
+
+updateUrl(e) {
+  console.log('In updateUrl ' + e.target.value);
+    this.setState({
+      holderUrl: e.target.value,
+    });
+  }
+
+searchUrl() {
+    console.log('In serachURL ' + this.state.holderUrl);
+    this.setState({
+      url: this.state.holderUrl,
+
+    });
+  }
+
 
 
 getQuestions() {
@@ -57,8 +78,10 @@ addAnswers(survey_id, selectedOption) {
     })
     .then(() => {
       console.log('added answer');
+      window.location = '/#/chart';
+
     })
-    .catch(err => console.log(error));
+    .catch(err => console.log(err));
 }
 
 
@@ -77,7 +100,16 @@ render() {
     return (
       <div className="container">
 
-       <iframe className="boxcontainer" src="http://www.w3schools.com" width="555" height="600"></iframe>
+      <UrlLink
+              updateUrl={(e) => this.updateUrl(e)}
+              searchUrl={this.searchUrl.bind(this)}
+              holderUrl={this.state.holderUrl}
+
+      />
+
+       <Link to="/chart">Chart</Link>
+       <iframe className="boxcontainer"
+       src={this.state.holderUrl} width="555" height="600"></iframe>
        <QuestionList className="boxcontainer"
        getQuestions={this.getQuestions.bind(this)}
        questions={this.state.questions}

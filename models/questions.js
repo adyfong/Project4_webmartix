@@ -12,7 +12,7 @@ function getQuestions(req, res, next) {
 
 
 function getAnswers(req, res, next) {
-  db.any('SELECT a1, a2, a3, a4, a5 FROM answers WHERE user_id=3;')
+  db.any('SELECT a1, a2, a3, a4, a5 FROM answers ORDER BY id DESC LIMIT 1;;')
     .then(answers => {
       res.answers = answers;
       next();

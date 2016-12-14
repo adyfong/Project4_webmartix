@@ -103,7 +103,10 @@ Code in APP.js
 
        [{x: 'SomethingA', y: 10}, {x: 'SomethingB', y: 4}, {x: 'SomethingC', y: 3}]
 
-
+var data = [{
+    label: 'somethingA',
+    values: [{x: 'SomethingA', y: 10}, {x: 'SomethingB', y: 4}, {x: 'SomethingC', y: 3}]
+}];
 
 
       Object.keys(this.props.answers)
