@@ -1,4 +1,5 @@
 import React from 'react';
+import './QuestionRate.css';
 
 export default class QuestionRate extends React.Component {
 
