@@ -34,6 +34,10 @@ const renderAnswers = props.answers.map((q, i) => {
     )
   });
 
+
+answers
+Object.key(answers)
+
               // <div id='scoreboard'>
 
             //      <BarChart
@@ -89,7 +93,7 @@ Code in APP.js
          </button>
        </div>
 
-
+   <IndexRoute component={Home}/>
 
 
        in Chart
@@ -98,3 +102,19 @@ Code in APP.js
 
 
        [{x: 'SomethingA', y: 10}, {x: 'SomethingB', y: 4}, {x: 'SomethingC', y: 3}]
+
+
+
+
+      Object.keys(this.props.answers)
+
+      {this.props.answers.map((survey, i) =>{
+      parseInt()
+
+
+
+        <h1> WEBMATRIX User Testing</h1>
+         <button className="chart_data">
+               <Link to="/chart">Chart</Link>
+         </button>
+

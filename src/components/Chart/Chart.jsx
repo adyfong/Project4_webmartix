@@ -20,8 +20,6 @@ componentWillMount() {
 }
 
 
-
-
 render()
 {
 var data = [{
@@ -32,8 +30,6 @@ var data = [{
 
   return(
     <div id='scoreboard'>
-      <h1> HIIII </h1>
-
       <BarChart
          data={data}
          width={400}

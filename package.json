@@ -23,6 +23,7 @@
     "pg-promise": "^5.4.7",
     "rd3": "^0.7.4",
     "react-dom": "^15.4.1"
+
   },
   "devDependencies": {
     "babel": "^6.5.2",

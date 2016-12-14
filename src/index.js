@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Router, Route, hashHistory } from 'react-router';
 import App from './components/App/App.jsx';
+
 // import Chart from './components/Chart/Chart.jsx'
+
+
 
 
 
@@ -11,7 +13,9 @@ ReactDOM.render(<App />, document.querySelector('#root-container'));
 
 // ReactDOM.render((
 //    <Router history={hashHistory}>
-//        <Route path="/" component={App}/>
-//        <Route path="/chart" component={Chart}/>
+//       <Route path="/" component={App}>
+//         <IndexRoute component={Home}/>
+//         <Route path="/chart" component={Chart}/>
+//       </Route>
 //    </Router>
 //  ), document.querySelector('#root-container'));
