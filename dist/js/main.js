@@ -67,7 +67,7 @@
 	
 	var _SurveyForm2 = _interopRequireDefault(_SurveyForm);
 	
-	var _ChartForm = __webpack_require__(/*! ./components/ChartForm/ChartForm.jsx */ 240);
+	var _ChartForm = __webpack_require__(/*! ./components/ChartForm/ChartForm.jsx */ 243);
 	
 	var _ChartForm2 = _interopRequireDefault(_ChartForm);
 	
@@ -27029,21 +27029,26 @@
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
-	      null,
+	      { className: 'app-container' },
 	      _react2.default.createElement(
 	        'h1',
-	        null,
-	        'React Router Tutorial'
+	        { className: 'app-title' },
+	        'WebMatrix'
+	      ),
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'company-intro' },
+	        'An evaluation rating solution for websites by friends to professional team'
 	      ),
 	      _react2.default.createElement(
 	        'ul',
-	        { role: 'nav' },
+	        { className: 'primary-function' },
 	        _react2.default.createElement(
 	          'li',
 	          null,
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: '/survey' },
+	            { to: '/survey', className: 'survey-box' },
 	            'Survey'
 	          )
 	        ),
@@ -27052,7 +27057,7 @@
 	          null,
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: '/chart' },
+	            { to: '/chart', className: 'chart-box' },
 	            'Chart'
 	          )
 	        )
@@ -27084,17 +27089,17 @@
 	
 	var _QuestionList2 = _interopRequireDefault(_QuestionList);
 	
-	var _AjaxAdapter = __webpack_require__(/*! ../../helpers/AjaxAdapter */ 238);
+	var _AjaxAdapter = __webpack_require__(/*! ../../helpers/AjaxAdapter */ 239);
 	
 	var _AjaxAdapter2 = _interopRequireDefault(_AjaxAdapter);
 	
-	var _UrlLink = __webpack_require__(/*! ../UrlLink/UrlLink.jsx */ 267);
+	var _UrlLink = __webpack_require__(/*! ../UrlLink/UrlLink.jsx */ 240);
 	
 	var _UrlLink2 = _interopRequireDefault(_UrlLink);
 	
 	var _reactRouter = __webpack_require__(/*! react-router */ 178);
 	
-	__webpack_require__(/*! ./SurveyForm.css */ 239);
+	__webpack_require__(/*! ./SurveyForm.css */ 242);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -27187,7 +27192,6 @@
 	          selectedOption: selectedOption })
 	      }).then(function () {
 	        console.log('added answer');
-	        window.location = '/#/chart';
 	      }).catch(function (err) {
 	        return console.log(err);
 	      });
@@ -27220,7 +27224,7 @@
 	        }),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/chart' },
+	          { to: '/chart', className: 'chart-link' },
 	          'Chart'
 	        ),
 	        _react2.default.createElement('iframe', { className: 'boxcontainer',
@@ -27264,7 +27268,7 @@
 	
 	var _QuestionRate2 = _interopRequireDefault(_QuestionRate);
 	
-	__webpack_require__(/*! ./QuestionList.css */ 237);
+	__webpack_require__(/*! ./QuestionList.css */ 238);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -27403,6 +27407,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	__webpack_require__(/*! ./QuestionRate.css */ 237);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27503,7 +27509,7 @@
 /***/ },
 /* 237 */
 /*!******************************************************!*\
-  !*** ./src/components/QuestionForm/QuestionList.css ***!
+  !*** ./src/components/QuestionForm/QuestionRate.css ***!
   \******************************************************/
 /***/ function(module, exports) {
 
@@ -27511,6 +27517,15 @@
 
 /***/ },
 /* 238 */
+/*!******************************************************!*\
+  !*** ./src/components/QuestionForm/QuestionList.css ***!
+  \******************************************************/
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 239 */
 /*!*************************************!*\
   !*** ./src/helpers/AjaxAdapter.jsx ***!
   \*************************************/
@@ -27627,7 +27642,82 @@
 	exports.default = AjaxFunctions;
 
 /***/ },
-/* 239 */
+/* 240 */
+/*!********************************************!*\
+  !*** ./src/components/UrlLink/UrlLink.jsx ***!
+  \********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	__webpack_require__(/*! ./UrlLink.css */ 241);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var UrlLink = function (_Component) {
+	  _inherits(UrlLink, _Component);
+	
+	  function UrlLink() {
+	    _classCallCheck(this, UrlLink);
+	
+	    return _possibleConstructorReturn(this, (UrlLink.__proto__ || Object.getPrototypeOf(UrlLink)).apply(this, arguments));
+	  }
+	
+	  _createClass(UrlLink, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      // for where users can enter url to change background images
+	      // use on change so that real time updates to url can be seen in input box
+	      // props passed from parents
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'urlLink' },
+	        _react2.default.createElement('input', { className: 'input', type: 'text', name: 'url', value: this.props.holderUrl, placeholder: 'Enter Url', onChange: this.props.updateUrl }),
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'button', onClick: function onClick() {
+	              return _this2.props.searchUrl();
+	            } },
+	          'Link Url'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return UrlLink;
+	}(_react.Component);
+	
+	exports.default = UrlLink;
+
+/***/ },
+/* 241 */
+/*!********************************************!*\
+  !*** ./src/components/UrlLink/UrlLink.css ***!
+  \********************************************/
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 242 */
 /*!**************************************************!*\
   !*** ./src/components/SurveyForm/SurveyForm.css ***!
   \**************************************************/
@@ -27636,7 +27726,7 @@
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 240 */
+/* 243 */
 /*!************************************************!*\
   !*** ./src/components/ChartForm/ChartForm.jsx ***!
   \************************************************/
@@ -27654,15 +27744,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _QuestionNoRate = __webpack_require__(/*! ../QuestionForm/QuestionNoRate.jsx */ 241);
+	var _QuestionNoRate = __webpack_require__(/*! ../QuestionForm/QuestionNoRate.jsx */ 244);
 	
 	var _QuestionNoRate2 = _interopRequireDefault(_QuestionNoRate);
 	
-	var _Chart = __webpack_require__(/*! ../Chart/Chart.jsx */ 243);
+	var _Chart = __webpack_require__(/*! ../Chart/Chart.jsx */ 246);
 	
 	var _Chart2 = _interopRequireDefault(_Chart);
 	
-	__webpack_require__(/*! ./ChartForm.css */ 266);
+	__webpack_require__(/*! ./ChartForm.css */ 269);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -27768,7 +27858,7 @@
 	exports.default = SurveyForm;
 
 /***/ },
-/* 241 */
+/* 244 */
 /*!********************************************************!*\
   !*** ./src/components/QuestionForm/QuestionNoRate.jsx ***!
   \********************************************************/
@@ -27786,7 +27876,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	__webpack_require__(/*! ./QuestionNoRate.css */ 242);
+	__webpack_require__(/*! ./QuestionNoRate.css */ 245);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -27872,7 +27962,7 @@
 	exports.default = QuestionList;
 
 /***/ },
-/* 242 */
+/* 245 */
 /*!********************************************************!*\
   !*** ./src/components/QuestionForm/QuestionNoRate.css ***!
   \********************************************************/
@@ -27881,7 +27971,7 @@
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 243 */
+/* 246 */
 /*!****************************************!*\
   !*** ./src/components/Chart/Chart.jsx ***!
   \****************************************/
@@ -27908,8 +27998,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var ReactDOM = __webpack_require__(/*! react-dom */ 32);
-	var d3 = __webpack_require__(/*! d3 */ 244);
-	var BarChart = __webpack_require__(/*! react-d3-components */ 245).BarChart;
+	var d3 = __webpack_require__(/*! d3 */ 247);
+	var BarChart = __webpack_require__(/*! react-d3-components */ 248).BarChart;
 	var scope;
 	
 	var Chart = function (_React$Component) {
@@ -27977,7 +28067,7 @@
 	exports.default = Chart;
 
 /***/ },
-/* 244 */
+/* 247 */
 /*!********************!*\
   !*** ./~/d3/d3.js ***!
   \********************/
@@ -37539,7 +37629,7 @@
 	}();
 
 /***/ },
-/* 245 */
+/* 248 */
 /*!********************************************!*\
   !*** ./~/react-d3-components/lib/index.js ***!
   \********************************************/
@@ -37552,7 +37642,7 @@
 	});
 	exports.d3 = exports.Brush = exports.AreaChart = exports.LineChart = exports.ScatterPlot = exports.PieChart = exports.Waveform = exports.BarChart = undefined;
 	
-	var _BarChart = __webpack_require__(/*! ./BarChart */ 246);
+	var _BarChart = __webpack_require__(/*! ./BarChart */ 249);
 	
 	Object.defineProperty(exports, 'BarChart', {
 	  enumerable: true,
@@ -37561,7 +37651,7 @@
 	  }
 	});
 	
-	var _Waveform = __webpack_require__(/*! ./Waveform */ 258);
+	var _Waveform = __webpack_require__(/*! ./Waveform */ 261);
 	
 	Object.defineProperty(exports, 'Waveform', {
 	  enumerable: true,
@@ -37570,7 +37660,7 @@
 	  }
 	});
 	
-	var _PieChart = __webpack_require__(/*! ./PieChart */ 259);
+	var _PieChart = __webpack_require__(/*! ./PieChart */ 262);
 	
 	Object.defineProperty(exports, 'PieChart', {
 	  enumerable: true,
@@ -37579,7 +37669,7 @@
 	  }
 	});
 	
-	var _ScatterPlot = __webpack_require__(/*! ./ScatterPlot */ 261);
+	var _ScatterPlot = __webpack_require__(/*! ./ScatterPlot */ 264);
 	
 	Object.defineProperty(exports, 'ScatterPlot', {
 	  enumerable: true,
@@ -37588,7 +37678,7 @@
 	  }
 	});
 	
-	var _LineChart = __webpack_require__(/*! ./LineChart */ 262);
+	var _LineChart = __webpack_require__(/*! ./LineChart */ 265);
 	
 	Object.defineProperty(exports, 'LineChart', {
 	  enumerable: true,
@@ -37597,7 +37687,7 @@
 	  }
 	});
 	
-	var _AreaChart = __webpack_require__(/*! ./AreaChart */ 264);
+	var _AreaChart = __webpack_require__(/*! ./AreaChart */ 267);
 	
 	Object.defineProperty(exports, 'AreaChart', {
 	  enumerable: true,
@@ -37606,7 +37696,7 @@
 	  }
 	});
 	
-	var _Brush = __webpack_require__(/*! ./Brush */ 265);
+	var _Brush = __webpack_require__(/*! ./Brush */ 268);
 	
 	Object.defineProperty(exports, 'Brush', {
 	  enumerable: true,
@@ -37615,7 +37705,7 @@
 	  }
 	});
 	
-	var _d2 = __webpack_require__(/*! d3 */ 244);
+	var _d2 = __webpack_require__(/*! d3 */ 247);
 	
 	var _d3 = _interopRequireDefault(_d2);
 	
@@ -37624,7 +37714,7 @@
 	exports.d3 = _d3.default;
 
 /***/ },
-/* 246 */
+/* 249 */
 /*!***********************************************!*\
   !*** ./~/react-d3-components/lib/BarChart.js ***!
   \***********************************************/
@@ -37642,47 +37732,47 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Chart = __webpack_require__(/*! ./Chart */ 247);
+	var _Chart = __webpack_require__(/*! ./Chart */ 250);
 	
 	var _Chart2 = _interopRequireDefault(_Chart);
 	
-	var _Axis = __webpack_require__(/*! ./Axis */ 248);
+	var _Axis = __webpack_require__(/*! ./Axis */ 251);
 	
 	var _Axis2 = _interopRequireDefault(_Axis);
 	
-	var _Bar = __webpack_require__(/*! ./Bar */ 249);
+	var _Bar = __webpack_require__(/*! ./Bar */ 252);
 	
 	var _Bar2 = _interopRequireDefault(_Bar);
 	
-	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 250);
+	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 253);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
-	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 251);
+	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 254);
 	
 	var _DefaultPropsMixin2 = _interopRequireDefault(_DefaultPropsMixin);
 	
-	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 252);
+	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 255);
 	
 	var _HeightWidthMixin2 = _interopRequireDefault(_HeightWidthMixin);
 	
-	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 253);
+	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 256);
 	
 	var _ArrayifyMixin2 = _interopRequireDefault(_ArrayifyMixin);
 	
-	var _StackAccessorMixin = __webpack_require__(/*! ./StackAccessorMixin */ 254);
+	var _StackAccessorMixin = __webpack_require__(/*! ./StackAccessorMixin */ 257);
 	
 	var _StackAccessorMixin2 = _interopRequireDefault(_StackAccessorMixin);
 	
-	var _StackDataMixin = __webpack_require__(/*! ./StackDataMixin */ 255);
+	var _StackDataMixin = __webpack_require__(/*! ./StackDataMixin */ 258);
 	
 	var _StackDataMixin2 = _interopRequireDefault(_StackDataMixin);
 	
-	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 256);
+	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 259);
 	
 	var _DefaultScalesMixin2 = _interopRequireDefault(_DefaultScalesMixin);
 	
-	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 257);
+	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 260);
 	
 	var _TooltipMixin2 = _interopRequireDefault(_TooltipMixin);
 	
@@ -37874,7 +37964,7 @@
 	exports.default = BarChart;
 
 /***/ },
-/* 247 */
+/* 250 */
 /*!********************************************!*\
   !*** ./~/react-d3-components/lib/Chart.js ***!
   \********************************************/
@@ -37935,7 +38025,7 @@
 	exports.default = Chart;
 
 /***/ },
-/* 248 */
+/* 251 */
 /*!*******************************************!*\
   !*** ./~/react-d3-components/lib/Axis.js ***!
   \*******************************************/
@@ -38165,7 +38255,7 @@
 	exports.default = Axis;
 
 /***/ },
-/* 249 */
+/* 252 */
 /*!******************************************!*\
   !*** ./~/react-d3-components/lib/Bar.js ***!
   \******************************************/
@@ -38237,7 +38327,7 @@
 	exports.default = Bar;
 
 /***/ },
-/* 250 */
+/* 253 */
 /*!**********************************************!*\
   !*** ./~/react-d3-components/lib/Tooltip.js ***!
   \**********************************************/
@@ -38306,7 +38396,7 @@
 	exports.default = Tooltip;
 
 /***/ },
-/* 251 */
+/* 254 */
 /*!********************************************************!*\
   !*** ./~/react-d3-components/lib/DefaultPropsMixin.js ***!
   \********************************************************/
@@ -38320,7 +38410,7 @@
 	
 	var _react = __webpack_require__(/*! react */ 1);
 	
-	var _d = __webpack_require__(/*! d3 */ 244);
+	var _d = __webpack_require__(/*! d3 */ 247);
 	
 	var _d2 = _interopRequireDefault(_d);
 	
@@ -38364,7 +38454,7 @@
 	exports.default = DefaultPropsMixin;
 
 /***/ },
-/* 252 */
+/* 255 */
 /*!*******************************************************!*\
   !*** ./~/react-d3-components/lib/HeightWidthMixin.js ***!
   \*******************************************************/
@@ -38396,7 +38486,7 @@
 	exports.default = HeightWidthMixin;
 
 /***/ },
-/* 253 */
+/* 256 */
 /*!****************************************************!*\
   !*** ./~/react-d3-components/lib/ArrayifyMixin.js ***!
   \****************************************************/
@@ -38431,7 +38521,7 @@
 	exports.default = ArrayifyMixin;
 
 /***/ },
-/* 254 */
+/* 257 */
 /*!*********************************************************!*\
   !*** ./~/react-d3-components/lib/StackAccessorMixin.js ***!
   \*********************************************************/
@@ -38481,7 +38571,7 @@
 	exports.default = StackAccessorMixin;
 
 /***/ },
-/* 255 */
+/* 258 */
 /*!*****************************************************!*\
   !*** ./~/react-d3-components/lib/StackDataMixin.js ***!
   \*****************************************************/
@@ -38495,7 +38585,7 @@
 	
 	var _react = __webpack_require__(/*! react */ 1);
 	
-	var _d = __webpack_require__(/*! d3 */ 244);
+	var _d = __webpack_require__(/*! d3 */ 247);
 	
 	var _d2 = _interopRequireDefault(_d);
 	
@@ -38538,7 +38628,7 @@
 	exports.default = StackDataMixin;
 
 /***/ },
-/* 256 */
+/* 259 */
 /*!*********************************************************!*\
   !*** ./~/react-d3-components/lib/DefaultScalesMixin.js ***!
   \*********************************************************/
@@ -38554,7 +38644,7 @@
 	
 	var _react = __webpack_require__(/*! react */ 1);
 	
-	var _d2 = __webpack_require__(/*! d3 */ 244);
+	var _d2 = __webpack_require__(/*! d3 */ 247);
 	
 	var _d3 = _interopRequireDefault(_d2);
 	
@@ -38717,7 +38807,7 @@
 	exports.default = DefaultScalesMixin;
 
 /***/ },
-/* 257 */
+/* 260 */
 /*!***************************************************!*\
   !*** ./~/react-d3-components/lib/TooltipMixin.js ***!
   \***************************************************/
@@ -38864,7 +38954,7 @@
 	exports.default = TooltipMixin;
 
 /***/ },
-/* 258 */
+/* 261 */
 /*!***********************************************!*\
   !*** ./~/react-d3-components/lib/Waveform.js ***!
   \***********************************************/
@@ -38880,39 +38970,39 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Chart = __webpack_require__(/*! ./Chart */ 247);
+	var _Chart = __webpack_require__(/*! ./Chart */ 250);
 	
 	var _Chart2 = _interopRequireDefault(_Chart);
 	
-	var _Bar = __webpack_require__(/*! ./Bar */ 249);
+	var _Bar = __webpack_require__(/*! ./Bar */ 252);
 	
 	var _Bar2 = _interopRequireDefault(_Bar);
 	
-	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 251);
+	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 254);
 	
 	var _DefaultPropsMixin2 = _interopRequireDefault(_DefaultPropsMixin);
 	
-	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 252);
+	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 255);
 	
 	var _HeightWidthMixin2 = _interopRequireDefault(_HeightWidthMixin);
 	
-	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 253);
+	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 256);
 	
 	var _ArrayifyMixin2 = _interopRequireDefault(_ArrayifyMixin);
 	
-	var _StackAccessorMixin = __webpack_require__(/*! ./StackAccessorMixin */ 254);
+	var _StackAccessorMixin = __webpack_require__(/*! ./StackAccessorMixin */ 257);
 	
 	var _StackAccessorMixin2 = _interopRequireDefault(_StackAccessorMixin);
 	
-	var _StackDataMixin = __webpack_require__(/*! ./StackDataMixin */ 255);
+	var _StackDataMixin = __webpack_require__(/*! ./StackDataMixin */ 258);
 	
 	var _StackDataMixin2 = _interopRequireDefault(_StackDataMixin);
 	
-	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 256);
+	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 259);
 	
 	var _DefaultScalesMixin2 = _interopRequireDefault(_DefaultScalesMixin);
 	
-	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 257);
+	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 260);
 	
 	var _TooltipMixin2 = _interopRequireDefault(_TooltipMixin);
 	
@@ -39103,7 +39193,7 @@
 	exports.default = Waveform;
 
 /***/ },
-/* 259 */
+/* 262 */
 /*!***********************************************!*\
   !*** ./~/react-d3-components/lib/PieChart.js ***!
   \***********************************************/
@@ -39119,31 +39209,31 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _d = __webpack_require__(/*! d3 */ 244);
+	var _d = __webpack_require__(/*! d3 */ 247);
 	
 	var _d2 = _interopRequireDefault(_d);
 	
-	var _Chart = __webpack_require__(/*! ./Chart */ 247);
+	var _Chart = __webpack_require__(/*! ./Chart */ 250);
 	
 	var _Chart2 = _interopRequireDefault(_Chart);
 	
-	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 250);
+	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 253);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
-	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 251);
+	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 254);
 	
 	var _DefaultPropsMixin2 = _interopRequireDefault(_DefaultPropsMixin);
 	
-	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 252);
+	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 255);
 	
 	var _HeightWidthMixin2 = _interopRequireDefault(_HeightWidthMixin);
 	
-	var _AccessorMixin = __webpack_require__(/*! ./AccessorMixin */ 260);
+	var _AccessorMixin = __webpack_require__(/*! ./AccessorMixin */ 263);
 	
 	var _AccessorMixin2 = _interopRequireDefault(_AccessorMixin);
 	
-	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 257);
+	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 260);
 	
 	var _TooltipMixin2 = _interopRequireDefault(_TooltipMixin);
 	
@@ -39411,7 +39501,7 @@
 	exports.default = PieChart;
 
 /***/ },
-/* 260 */
+/* 263 */
 /*!****************************************************!*\
   !*** ./~/react-d3-components/lib/AccessorMixin.js ***!
   \****************************************************/
@@ -39461,7 +39551,7 @@
 	exports.default = AccessorMixin;
 
 /***/ },
-/* 261 */
+/* 264 */
 /*!**************************************************!*\
   !*** ./~/react-d3-components/lib/ScatterPlot.js ***!
   \**************************************************/
@@ -39479,43 +39569,43 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _d = __webpack_require__(/*! d3 */ 244);
+	var _d = __webpack_require__(/*! d3 */ 247);
 	
 	var _d2 = _interopRequireDefault(_d);
 	
-	var _Chart = __webpack_require__(/*! ./Chart */ 247);
+	var _Chart = __webpack_require__(/*! ./Chart */ 250);
 	
 	var _Chart2 = _interopRequireDefault(_Chart);
 	
-	var _Axis = __webpack_require__(/*! ./Axis */ 248);
+	var _Axis = __webpack_require__(/*! ./Axis */ 251);
 	
 	var _Axis2 = _interopRequireDefault(_Axis);
 	
-	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 250);
+	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 253);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
-	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 251);
+	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 254);
 	
 	var _DefaultPropsMixin2 = _interopRequireDefault(_DefaultPropsMixin);
 	
-	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 252);
+	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 255);
 	
 	var _HeightWidthMixin2 = _interopRequireDefault(_HeightWidthMixin);
 	
-	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 253);
+	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 256);
 	
 	var _ArrayifyMixin2 = _interopRequireDefault(_ArrayifyMixin);
 	
-	var _AccessorMixin = __webpack_require__(/*! ./AccessorMixin */ 260);
+	var _AccessorMixin = __webpack_require__(/*! ./AccessorMixin */ 263);
 	
 	var _AccessorMixin2 = _interopRequireDefault(_AccessorMixin);
 	
-	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 256);
+	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 259);
 	
 	var _DefaultScalesMixin2 = _interopRequireDefault(_DefaultScalesMixin);
 	
-	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 257);
+	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 260);
 	
 	var _TooltipMixin2 = _interopRequireDefault(_TooltipMixin);
 	
@@ -39680,7 +39770,7 @@
 	exports.default = ScatterPlot;
 
 /***/ },
-/* 262 */
+/* 265 */
 /*!************************************************!*\
   !*** ./~/react-d3-components/lib/LineChart.js ***!
   \************************************************/
@@ -39698,47 +39788,47 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _d = __webpack_require__(/*! d3 */ 244);
+	var _d = __webpack_require__(/*! d3 */ 247);
 	
 	var _d2 = _interopRequireDefault(_d);
 	
-	var _Chart = __webpack_require__(/*! ./Chart */ 247);
+	var _Chart = __webpack_require__(/*! ./Chart */ 250);
 	
 	var _Chart2 = _interopRequireDefault(_Chart);
 	
-	var _Axis = __webpack_require__(/*! ./Axis */ 248);
+	var _Axis = __webpack_require__(/*! ./Axis */ 251);
 	
 	var _Axis2 = _interopRequireDefault(_Axis);
 	
-	var _Path = __webpack_require__(/*! ./Path */ 263);
+	var _Path = __webpack_require__(/*! ./Path */ 266);
 	
 	var _Path2 = _interopRequireDefault(_Path);
 	
-	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 250);
+	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 253);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
-	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 251);
+	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 254);
 	
 	var _DefaultPropsMixin2 = _interopRequireDefault(_DefaultPropsMixin);
 	
-	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 252);
+	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 255);
 	
 	var _HeightWidthMixin2 = _interopRequireDefault(_HeightWidthMixin);
 	
-	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 253);
+	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 256);
 	
 	var _ArrayifyMixin2 = _interopRequireDefault(_ArrayifyMixin);
 	
-	var _AccessorMixin = __webpack_require__(/*! ./AccessorMixin */ 260);
+	var _AccessorMixin = __webpack_require__(/*! ./AccessorMixin */ 263);
 	
 	var _AccessorMixin2 = _interopRequireDefault(_AccessorMixin);
 	
-	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 256);
+	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 259);
 	
 	var _DefaultScalesMixin2 = _interopRequireDefault(_DefaultScalesMixin);
 	
-	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 257);
+	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 260);
 	
 	var _TooltipMixin2 = _interopRequireDefault(_TooltipMixin);
 	
@@ -40050,7 +40140,7 @@
 	exports.default = LineChart;
 
 /***/ },
-/* 263 */
+/* 266 */
 /*!*******************************************!*\
   !*** ./~/react-d3-components/lib/Path.js ***!
   \*******************************************/
@@ -40132,7 +40222,7 @@
 	exports.default = Path;
 
 /***/ },
-/* 264 */
+/* 267 */
 /*!************************************************!*\
   !*** ./~/react-d3-components/lib/AreaChart.js ***!
   \************************************************/
@@ -40150,51 +40240,51 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _d = __webpack_require__(/*! d3 */ 244);
+	var _d = __webpack_require__(/*! d3 */ 247);
 	
 	var _d2 = _interopRequireDefault(_d);
 	
-	var _Chart = __webpack_require__(/*! ./Chart */ 247);
+	var _Chart = __webpack_require__(/*! ./Chart */ 250);
 	
 	var _Chart2 = _interopRequireDefault(_Chart);
 	
-	var _Axis = __webpack_require__(/*! ./Axis */ 248);
+	var _Axis = __webpack_require__(/*! ./Axis */ 251);
 	
 	var _Axis2 = _interopRequireDefault(_Axis);
 	
-	var _Path = __webpack_require__(/*! ./Path */ 263);
+	var _Path = __webpack_require__(/*! ./Path */ 266);
 	
 	var _Path2 = _interopRequireDefault(_Path);
 	
-	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 250);
+	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 253);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
-	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 251);
+	var _DefaultPropsMixin = __webpack_require__(/*! ./DefaultPropsMixin */ 254);
 	
 	var _DefaultPropsMixin2 = _interopRequireDefault(_DefaultPropsMixin);
 	
-	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 252);
+	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 255);
 	
 	var _HeightWidthMixin2 = _interopRequireDefault(_HeightWidthMixin);
 	
-	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 253);
+	var _ArrayifyMixin = __webpack_require__(/*! ./ArrayifyMixin */ 256);
 	
 	var _ArrayifyMixin2 = _interopRequireDefault(_ArrayifyMixin);
 	
-	var _StackAccessorMixin = __webpack_require__(/*! ./StackAccessorMixin */ 254);
+	var _StackAccessorMixin = __webpack_require__(/*! ./StackAccessorMixin */ 257);
 	
 	var _StackAccessorMixin2 = _interopRequireDefault(_StackAccessorMixin);
 	
-	var _StackDataMixin = __webpack_require__(/*! ./StackDataMixin */ 255);
+	var _StackDataMixin = __webpack_require__(/*! ./StackDataMixin */ 258);
 	
 	var _StackDataMixin2 = _interopRequireDefault(_StackDataMixin);
 	
-	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 256);
+	var _DefaultScalesMixin = __webpack_require__(/*! ./DefaultScalesMixin */ 259);
 	
 	var _DefaultScalesMixin2 = _interopRequireDefault(_DefaultScalesMixin);
 	
-	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 257);
+	var _TooltipMixin = __webpack_require__(/*! ./TooltipMixin */ 260);
 	
 	var _TooltipMixin2 = _interopRequireDefault(_TooltipMixin);
 	
@@ -40391,7 +40481,7 @@
 	exports.default = AreaChart;
 
 /***/ },
-/* 265 */
+/* 268 */
 /*!********************************************!*\
   !*** ./~/react-d3-components/lib/Brush.js ***!
   \********************************************/
@@ -40413,15 +40503,15 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _Chart = __webpack_require__(/*! ./Chart */ 247);
+	var _Chart = __webpack_require__(/*! ./Chart */ 250);
 	
 	var _Chart2 = _interopRequireDefault(_Chart);
 	
-	var _Axis = __webpack_require__(/*! ./Axis */ 248);
+	var _Axis = __webpack_require__(/*! ./Axis */ 251);
 	
 	var _Axis2 = _interopRequireDefault(_Axis);
 	
-	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 252);
+	var _HeightWidthMixin = __webpack_require__(/*! ./HeightWidthMixin */ 255);
 	
 	var _HeightWidthMixin2 = _interopRequireDefault(_HeightWidthMixin);
 	
@@ -40740,85 +40830,10 @@
 	exports.default = Brush;
 
 /***/ },
-/* 266 */
+/* 269 */
 /*!************************************************!*\
   !*** ./src/components/ChartForm/ChartForm.css ***!
   \************************************************/
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 267 */
-/*!********************************************!*\
-  !*** ./src/components/UrlLink/UrlLink.jsx ***!
-  \********************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	__webpack_require__(/*! ./UrlLink.css */ 268);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var UrlLink = function (_Component) {
-	  _inherits(UrlLink, _Component);
-	
-	  function UrlLink() {
-	    _classCallCheck(this, UrlLink);
-	
-	    return _possibleConstructorReturn(this, (UrlLink.__proto__ || Object.getPrototypeOf(UrlLink)).apply(this, arguments));
-	  }
-	
-	  _createClass(UrlLink, [{
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      // for where users can enter url to change background images
-	      // use on change so that real time updates to url can be seen in input box
-	      // props passed from parents
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'urlLink' },
-	        _react2.default.createElement('input', { className: 'input', type: 'text', name: 'url', value: this.props.holderUrl, placeholder: 'Enter Url', onChange: this.props.updateUrl }),
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'button', onClick: function onClick() {
-	              return _this2.props.searchUrl();
-	            } },
-	          'Link Url'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return UrlLink;
-	}(_react.Component);
-	
-	exports.default = UrlLink;
-
-/***/ },
-/* 268 */
-/*!********************************************!*\
-  !*** ./src/components/UrlLink/UrlLink.css ***!
-  \********************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

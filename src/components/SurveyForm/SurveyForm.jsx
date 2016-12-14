@@ -105,7 +105,7 @@ render() {
 
       />
 
-       <Link to="/chart">Chart</Link>
+       <Link to="/chart" className="chart-link">Chart</Link>
        <iframe className="boxcontainer"
        src={this.state.holderUrl} width="555" height="600"></iframe>
        <QuestionList className="boxcontainer"
