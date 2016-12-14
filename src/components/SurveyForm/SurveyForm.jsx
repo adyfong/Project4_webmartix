@@ -98,14 +98,15 @@ render() {
     return (
       <div className="container">
 
-      <UrlLink
+      <UrlLink className="nav-link"
               updateUrl={(e) => this.updateUrl(e)}
               searchUrl={this.searchUrl.bind(this)}
               holderUrl={this.state.holderUrl}
 
       />
 
-       <Link to="/chart" className="chart-link">Chart</Link>
+       <Link to="/chart" className="nav-link">Chart</Link>
+
        <iframe className="boxcontainer"
        src={this.state.holderUrl} width="555" height="600"></iframe>
        <QuestionList className="boxcontainer"

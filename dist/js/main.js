@@ -27022,6 +27022,8 @@
 	
 	var _reactRouter = __webpack_require__(/*! react-router */ 178);
 	
+	__webpack_require__(/*! ./App.css */ 271);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
@@ -27214,7 +27216,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container' },
-	        _react2.default.createElement(_UrlLink2.default, {
+	        _react2.default.createElement(_UrlLink2.default, { className: 'nav-link',
 	          updateUrl: function updateUrl(e) {
 	            return _this4.updateUrl(e);
 	          },
@@ -27224,7 +27226,7 @@
 	        }),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/chart', className: 'chart-link' },
+	          { to: '/chart', className: 'nav-link' },
 	          'Chart'
 	        ),
 	        _react2.default.createElement('iframe', { className: 'boxcontainer',
@@ -27327,9 +27329,9 @@
 	              'div',
 	              { className: 'ListText', key: i },
 	              _react2.default.createElement(
-	                'h1',
+	                'h2',
 	                null,
-	                ' This survey is for "http://www.w3schools.com" '
+	                ' Rate this website 1:Lowest  5:Highest '
 	              ),
 	              _react2.default.createElement(
 	                'h2',
@@ -27988,6 +27990,8 @@
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	__webpack_require__(/*! ./Chart.css */ 270);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -40834,6 +40838,24 @@
 /*!************************************************!*\
   !*** ./src/components/ChartForm/ChartForm.css ***!
   \************************************************/
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 270 */
+/*!****************************************!*\
+  !*** ./src/components/Chart/Chart.css ***!
+  \****************************************/
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 271 */
+/*!************************************!*\
+  !*** ./src/components/App/App.css ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

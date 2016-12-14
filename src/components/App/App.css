@@ -1,12 +1,12 @@
 
 body {
-    background-image: bluebackground.jpg;
+    background-image: url("bluebackground.jpg");
 }
 
 
 .app-title {
-    margin-:50px;
-    background-color: green;
+    margin-top:200px;
+    color: #FAFAFA;
     font-family: Arial,sans-serif;
 }
 

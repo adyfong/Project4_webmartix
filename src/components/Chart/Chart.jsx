@@ -1,4 +1,6 @@
 import React from 'react';
+import './Chart.css';
+
 
 var ReactDOM = require('react-dom');
 var d3 = require('d3');

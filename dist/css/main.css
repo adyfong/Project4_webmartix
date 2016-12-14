@@ -1,3 +1,62 @@
+
+body {
+    background-image: url(/images/bluebackground.jpg);
+}
+
+
+.app-title {
+    margin-top:200px;
+    color: #FAFAFA;
+    font-family: Arial,sans-serif;
+}
+
+.company-intro {
+    font-size: 16px;
+    backgroun-color: blue;
+    font-family: Arial,sans-serif;
+}
+
+.primary-function {
+   width:400px;
+   height:300px;
+}
+
+.survey-box {
+    border: 1px solid #eaeaea ;
+    border-radius: 50px;
+    padding: 10px 50px;
+    background-color: transparent;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    color: #505050 ;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+
+.chart-box {
+    background: #DCE0E0;
+    position: relative;
+    display: block;
+    float: left;
+    height: 40px;
+    margin: 0 7px;
+    overflow: hidden;
+    width: 150px;
+    border-radius: 3px;
+
+}
+
+
+/*.boxcontainer {
+  width: 40%;
+  background-color: #FAFAFA;
+/*  justify-content: flex-end;*/
+/*}
+*/
+
 .containerRight {
   margin-left: 30px;
   align-content: flex-end;
@@ -51,6 +110,39 @@ input[type='text'] {
 /*  justify-content: flex-end;*/
 }
 
+/*import React from 'react';
+// import rd3 from 'rd3';
+import { BarChart } from 'rd3';
+import './Chart.css';
+
+
+// const BarChart = require('react-d3/barchart').BarChart;
+// const BarChart = rd3.BarChart;
+
+const  barData = [
+  {label: 'A', value: 5},
+  {label: 'B', value: 6},
+  {label: 'F', value: 7}
+];
+
+export default class Chart extends React.Component {
+
+    render() {
+        return(
+          <div className='chart-bargraph'>
+            <BarChart
+                  data={barData}
+                  width={500}
+                  height={200}
+                  fill={'#3182bd'}
+                  xAxisLabel="Question"
+                  yAxisLabel="Rating"
+                  title='Bar Chart'
+             />;
+          </div>
+        )
+    }
+};*/
 
 
 /*# sourceMappingURL=main.css.map*/

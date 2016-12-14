@@ -40,7 +40,7 @@ render(){
 
        return (
         <div className="ListText" key={i}>
-          <h1> This survey is for "http://www.w3schools.com" </h1>
+          <h2> Rate this website 1:Lowest  5:Highest </h2>
           <h2>{qID.q1}</h2>
             {/*<QuestionRate id="a1"/>
             selectedOption is the array of selected rating for each questions

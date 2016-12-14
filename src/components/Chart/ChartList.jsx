@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestionRate from './QuestionRate.jsx'
-import './QuestionList.css';
+import './ChartList.css';
 
 
 export default class QuestionList extends React.Component {
