@@ -7,7 +7,7 @@ export default React.createClass({
     return (
       <div className="app-container">
 
-      <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
 
         <h1 className="app-title">WebMatrix</h1>
         <h2 className="company-intro">An evaluation rating solution for websites - by friends and professional team</h2>
