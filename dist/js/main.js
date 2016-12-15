@@ -27032,6 +27032,7 @@
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'app-container' },
+	      _react2.default.createElement('link', { href: 'https://fonts.googleapis.com/css?family=Titillium+Web', rel: 'stylesheet' }),
 	      _react2.default.createElement(
 	        'h1',
 	        { className: 'app-title' },
