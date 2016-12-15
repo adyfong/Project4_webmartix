@@ -15,9 +15,8 @@ export default class SurveyForm extends React.Component {
       this.state = {
       questions: [],
       answers: [],
-      holderUrl: "",
+      holderUrl: "http://www.w3schools.com",
       url: "http://www.w3schools.com",
-      holderUrl: "",
       selectedOption: ['1', '1', '1', '1', '1'],
     }
   }
@@ -78,6 +77,7 @@ addAnswers(survey_id, selectedOption) {
     })
     .then(() => {
       console.log('added answer');
+      window.location = "/#/chart";
     })
     .catch(err => console.log(err));
 }

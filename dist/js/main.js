@@ -27106,8 +27106,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -27121,19 +27119,18 @@
 	  _inherits(SurveyForm, _React$Component);
 	
 	  function SurveyForm(props) {
-	    var _this$state;
-	
 	    _classCallCheck(this, SurveyForm);
 	
 	    //set whatever initial states that will be changed or modified over time
 	    var _this = _possibleConstructorReturn(this, (SurveyForm.__proto__ || Object.getPrototypeOf(SurveyForm)).call(this, props));
 	
-	    _this.state = (_this$state = {
+	    _this.state = {
 	      questions: [],
 	      answers: [],
-	      holderUrl: "",
-	      url: "http://www.w3schools.com"
-	    }, _defineProperty(_this$state, 'holderUrl', ""), _defineProperty(_this$state, 'selectedOption', ['1', '1', '1', '1', '1']), _this$state);
+	      holderUrl: "http://www.w3schools.com",
+	      url: "http://www.w3schools.com",
+	      selectedOption: ['1', '1', '1', '1', '1']
+	    };
 	    return _this;
 	  }
 	
@@ -27195,6 +27192,7 @@
 	          selectedOption: selectedOption })
 	      }).then(function () {
 	        console.log('added answer');
+	        window.location = "/#/chart";
 	      }).catch(function (err) {
 	        return console.log(err);
 	      });
@@ -27704,7 +27702,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'urlLink' },
-	        _react2.default.createElement('input', { className: 'input', type: 'text', name: 'url', value: this.props.holderUrl, placeholder: 'Enter Url', onChange: this.props.updateUrl }),
+	        _react2.default.createElement('input', { className: 'input', type: 'text', name: 'url', value: this.props.holderUrl, placeholder: 'Enter Url',
+	          onChange: this.props.updateUrl }),
 	        _react2.default.createElement(
 	          'button',
 	          { className: 'button', onClick: function onClick() {
@@ -27818,7 +27817,7 @@
 	        body: JSON.stringify({ survey_id: survey_id,
 	          selectedOption: selectedOption })
 	      }).then(function () {
-	        console.log('added answer');
+	        window.location = "/#/chart";
 	      }).catch(function (err) {
 	        return console.log(error);
 	      });
@@ -27956,26 +27955,31 @@
 	              _react2.default.createElement(
 	                'h2',
 	                null,
+	                'Q1 : ',
 	                qID.q1
 	              ),
 	              _react2.default.createElement(
 	                'h2',
 	                null,
+	                'Q2 : ',
 	                qID.q2
 	              ),
 	              _react2.default.createElement(
 	                'h2',
 	                null,
+	                'Q3 : ',
 	                qID.q3
 	              ),
 	              _react2.default.createElement(
 	                'h2',
 	                null,
+	                'Q4 :',
 	                qID.q4
 	              ),
 	              _react2.default.createElement(
 	                'h2',
 	                null,
+	                'Q5 :',
 	                qID.q5
 	              )
 	            );

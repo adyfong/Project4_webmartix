@@ -40,7 +40,7 @@ addAnswers(survey_id, selectedOption) {
                             selectedOption: selectedOption})
     })
     .then(() => {
-      console.log('added answer');
+      window.location = "/#/chart";
     })
     .catch(err => console.log(error));
 }

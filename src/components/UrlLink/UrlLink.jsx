@@ -9,7 +9,8 @@ export default class UrlLink extends Component {
 // props passed from parents
     return (
       <div className="urlLink">
-        <input className="input" type="text" name="url" value={this.props.holderUrl} placeholder="Enter Url" onChange={this.props.updateUrl} />
+        <input className="input" type="text" name="url" value={this.props.holderUrl} placeholder="Enter Url"
+          onChange={this.props.updateUrl} />
         <button className="button" onClick={() => this.props.searchUrl()}>Link Url</button>
       </div>
     );
