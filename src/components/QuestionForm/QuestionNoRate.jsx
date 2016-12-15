@@ -35,9 +35,9 @@ render(){
 
           <h2>Q3 : {qID.q3}</h2>
 
-          <h2>Q4 :{qID.q4}</h2>
+          <h2>Q4 : {qID.q4}</h2>
 
-          <h2>Q5 :{qID.q5}</h2>
+          <h2>Q5 : {qID.q5}</h2>
 
        </div>
            )}

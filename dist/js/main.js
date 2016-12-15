@@ -27127,8 +27127,8 @@
 	    _this.state = {
 	      questions: [],
 	      answers: [],
-	      holderUrl: "http://www.w3schools.com",
-	      url: "http://www.w3schools.com",
+	      holderUrl: "http://www.msnbc.com",
+	      url: "http://www.msnbc.com",
 	      selectedOption: ['1', '1', '1', '1', '1']
 	    };
 	    return _this;
@@ -27973,13 +27973,13 @@
 	              _react2.default.createElement(
 	                'h2',
 	                null,
-	                'Q4 :',
+	                'Q4 : ',
 	                qID.q4
 	              ),
 	              _react2.default.createElement(
 	                'h2',
 	                null,
-	                'Q5 :',
+	                'Q5 : ',
 	                qID.q5
 	              )
 	            );

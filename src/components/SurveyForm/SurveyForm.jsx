@@ -15,8 +15,8 @@ export default class SurveyForm extends React.Component {
       this.state = {
       questions: [],
       answers: [],
-      holderUrl: "http://www.w3schools.com",
-      url: "http://www.w3schools.com",
+      holderUrl: "http://www.msnbc.com",
+      url: "http://www.msnbc.com",
       selectedOption: ['1', '1', '1', '1', '1'],
     }
   }
