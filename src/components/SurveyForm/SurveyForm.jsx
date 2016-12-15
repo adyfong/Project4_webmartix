@@ -110,9 +110,10 @@ render() {
 
        <div className="main-box">
 
-         <iframe className="boxcontainer-left"
+    {/*    <iframe className="boxcontainer-left"
          src={this.state.holderUrl} width="555" height="600">
          </iframe>
+*/}
 
          <div className="boxcontainer-right">
            <QuestionList
