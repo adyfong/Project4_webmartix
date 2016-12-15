@@ -1,1 +1,29 @@
+.chart_container {
+  display:flex;
+  flex-direction: row;
+}
 
+
+.chart-background {
+   width: 40%;
+   border-radius: 5%;
+   background-color: #FAFAFA;
+   padding-top: 40px;
+   margin-left: 50px;
+   margin-top:100px;
+   /*opacity: 0.6;
+   filter: alpha(opacity=60);*/
+}
+
+.chart-background-b {
+   width: 40%;
+   background-color: #FAFAFA;
+   border-radius: 5%;
+   padding-top: 40px;
+   margin-left: 50px;
+   margin-top:100px;
+   padding-left: 100px;
+   color: black;
+    opacity: 0.6;
+   filter: alpha(opacity=60);
+}

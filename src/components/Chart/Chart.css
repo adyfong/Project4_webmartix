@@ -1,33 +1,6 @@
-/*import React from 'react';
-// import rd3 from 'rd3';
-import { BarChart } from 'rd3';
-import './Chart.css';
-
-
-// const BarChart = require('react-d3/barchart').BarChart;
-// const BarChart = rd3.BarChart;
-
-const  barData = [
-  {label: 'A', value: 5},
-  {label: 'B', value: 6},
-  {label: 'F', value: 7}
-];
-
-export default class Chart extends React.Component {
-
-    render() {
-        return(
-          <div className='chart-bargraph'>
-            <BarChart
-                  data={barData}
-                  width={500}
-                  height={200}
-                  fill={'#3182bd'}
-                  xAxisLabel="Question"
-                  yAxisLabel="Rating"
-                  title='Bar Chart'
-             />;
-          </div>
-        )
-    }
-};*/
+/*.boxcontainer {
+  width: 40%;
+  background-color: #FAFAFA;
+/*  justify-content: flex-end;*/
+/*}
+*/

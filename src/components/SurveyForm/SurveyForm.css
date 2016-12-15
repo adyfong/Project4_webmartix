@@ -1,13 +1,58 @@
 .container {
-  display: flex;
+ /* display: flex;*/
   flex-direction: row;
   background-color: #FAFAFA;
+}
+
+.nav-box {
+  display: flex;
+  width: 90vw;
+  padding-left: 100px;
+  background-color: rgb(0,63,128);
+}
+.nav-link {
+  width: 500px;
 
 }
 
+.main-box {
+  /*width:100%;*/
+  display:flex;
+  flex-direction: row;
+}
 
-.boxcontainer {
+.boxcontainer-left {
   width: 40%;
-  background-color: #FAFAFA;
 /*  justify-content: flex-end;*/
+}
+
+.boxcontainer-right {
+  width: 45%;
+  background-color: #FAFAFA;
+/*
+   background-color: rgb(0,63,128);*/
+   color: black;
+
+/*  justify-content: flex-end;*/
+}
+
+
+.nav-chart {
+  position: absolute;
+  top: 5px;
+  left:80vw;
+  border: 1px solid #eaeaea ;
+  border-radius: 5px;
+    padding: 10px 50px;
+    margin-left: 120;
+    background-color: transparent;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    color: #FAFAFA ;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+
 }

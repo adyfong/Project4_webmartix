@@ -6,52 +6,72 @@ body {
 }
 
 
-
 .app-title {
-    margin-top:200px;
-    margin-left:10px;
+    margin-top:80px;
+    margin-left:100px;
     color: #FAFAFA;
+    font-size: 56px;
     font-family: Arial,sans-serif;
 }
 
 .company-intro {
-    font-size: 16px;
-    backgroun-color: blue;
-    font-family: Arial,sans-serif;
+    font-size: 25px;
+    color: #FAFAFA;
+     margin-left:100px;
+    font-family: 'Titillium Web', sans-serif;
+    width: 450px;
 }
 
+
 .primary-function {
-   width:400px;
-   height:300px;
+   margin-left:120px;
+   margin-top:50px;
+
+  /* width:400px;
+   height:300px;*/
 }
 
 .survey-box {
+
     border: 1px solid #eaeaea ;
-    border-radius: 50px;
+    border-radius: 5px;
+    padding: 10px 50px;
+    margin-left: 120;
+    background-color: transparent;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    color: #FAFAFA ;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.sign-butt: hover {
+    background-color: #FFF7D2 ;
+    border: 1px solid #FFF69F ;
+    animation: signb .5s ease-in-out;
+}
+
+
+.chart-box {
+    display: inline;
+    border: 1px solid #eaeaea ;
+    margin-left:200px;
+    border-radius: 5px;
     padding: 10px 50px;
     background-color: transparent;
     margin: 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 12px;
-    color: #505050 ;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    color: #FAFAFA ;
     text-transform: capitalize;
     letter-spacing: 1px;
 }
 
-
-.chart-box {
-    background: #DCE0E0;
-    position: relative;
-    display: block;
-    float: left;
-    height: 40px;
-    margin: 0 7px;
-    overflow: hidden;
-    width: 150px;
-    border-radius: 3px;
-
-}
 
 
 /*.boxcontainer {
@@ -82,71 +102,138 @@ body {
 }
 .button {
     border: 1px solid #eaeaea ;
-    border-radius: 50px;
+    border-radius: 5px;
     padding: 10px 50px;
+    margin-left: 120;
     background-color: transparent;
     margin: 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 12px;
-    color: #505050 ;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    color: #FAFAFA ;
     text-transform: capitalize;
     letter-spacing: 1px;
 }
 
 input[type='text'] {
   width: 300px;
-  height: 20px;
+  height: 25px;
   padding: 10px 10px 10px 10px;
   font-size: 12px;
+  border: 1px solid black ;
+  border-radius: 5px;
 }
 .container {
-  display: flex;
+ /* display: flex;*/
   flex-direction: row;
   background-color: #FAFAFA;
+}
+
+.nav-box {
+  display: flex;
+  width: 90vw;
+  padding-left: 100px;
+  background-color: rgb(0,63,128);
+}
+.nav-link {
+  width: 500px;
 
 }
 
+.main-box {
+  /*width:100%;*/
+  display:flex;
+  flex-direction: row;
+}
 
-.boxcontainer {
+.boxcontainer-left {
   width: 40%;
-  background-color: #FAFAFA;
 /*  justify-content: flex-end;*/
 }
 
-/*import React from 'react';
-// import rd3 from 'rd3';
-import { BarChart } from 'rd3';
-import './Chart.css';
+.boxcontainer-right {
+  width: 45%;
+  background-color: #FAFAFA;
+/*
+   background-color: rgb(0,63,128);*/
+   color: black;
+
+/*  justify-content: flex-end;*/
+}
 
 
-// const BarChart = require('react-d3/barchart').BarChart;
-// const BarChart = rd3.BarChart;
+.nav-chart {
+  position: absolute;
+  top: 5px;
+  left:80vw;
+  border: 1px solid #eaeaea ;
+  border-radius: 5px;
+    padding: 10px 50px;
+    margin-left: 120;
+    background-color: transparent;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    color: #FAFAFA ;
+    text-transform: capitalize;
+    letter-spacing: 1px;
 
-const  barData = [
-  {label: 'A', value: 5},
-  {label: 'B', value: 6},
-  {label: 'F', value: 7}
-];
+}
+.nav-survey {
+    position: absolute;
+   top: 15px;
+   left:10vw;
+   border: 2px solid #FAFAFA ;
+   border-radius: 5px;
+    padding: 10px 50px;
+    margin-left: 120;
+    background-color: transparent;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    color: #FAFAFA ;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+/*.boxcontainer {
+  width: 40%;
+  background-color: #FAFAFA;
+/*  justify-content: flex-end;*/
+/*}
+*/
+.chart_container {
+  display:flex;
+  flex-direction: row;
+}
 
-export default class Chart extends React.Component {
 
-    render() {
-        return(
-          <div className='chart-bargraph'>
-            <BarChart
-                  data={barData}
-                  width={500}
-                  height={200}
-                  fill={'#3182bd'}
-                  xAxisLabel="Question"
-                  yAxisLabel="Rating"
-                  title='Bar Chart'
-             />;
-          </div>
-        )
-    }
-};*/
+.chart-background {
+   width: 40%;
+   border-radius: 5%;
+   background-color: #FAFAFA;
+   padding-top: 40px;
+   margin-left: 50px;
+   margin-top:100px;
+   /*opacity: 0.6;
+   filter: alpha(opacity=60);*/
+}
 
+.chart-background-b {
+   width: 40%;
+   background-color: #FAFAFA;
+   border-radius: 5%;
+   padding-top: 40px;
+   margin-left: 50px;
+   margin-top:100px;
+   padding-left: 100px;
+   color: black;
+    opacity: 0.6;
+   filter: alpha(opacity=60);
+}
 
 /*# sourceMappingURL=main.css.map*/

@@ -71,20 +71,18 @@ getAnswers() {
 render() {
     return (
       <div className="chart_container">
-  <Chart
-        getAnswers={this.getAnswers.bind(this)}
-        answers={this.state.answers}
-        />
-
-  <QuestionNoRate className="boxcontainer"
-       getQuestions={this.getQuestions.bind(this)}
-       questions={this.state.questions}
-       />
-
-
-
-
-
+        <div className="chart-background">
+          <Chart
+          getAnswers={this.getAnswers.bind(this)}
+          answers={this.state.answers}
+          />
+        </div>
+        <div className="chart-background-b">
+           <QuestionNoRate className="box-container"
+           getQuestions={this.getQuestions.bind(this)}
+           questions={this.state.questions}
+           />
+        </div>
      </div>
     );
   }

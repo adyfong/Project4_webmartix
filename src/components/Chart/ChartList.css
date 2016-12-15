@@ -1,1 +1,4 @@
-ChartList.css
+.containerRight {
+  display: flex;
+  background-color: red;
+}

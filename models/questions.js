@@ -23,8 +23,8 @@ function getAnswers(req, res, next) {
 
 
 function addAnswers(req,res, next) {
-   console.log('Inside Model' + req.body.selectedOption);
-   console.log('Inside Model Array' + req.body.selectedOption[0]);
+   // console.log('Inside Model' + req.body.selectedOption);
+   // console.log('Inside Model Array' + req.body.selectedOption[0]);
 
    db.one(`
      INSERT INTO answers (a1, a2, a3, a4, a5)

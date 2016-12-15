@@ -1,6 +1,6 @@
 import React from 'react';
 import './QuestionNoRate.css';
-
+import { Link } from 'react-router';
 
 export default class QuestionList extends React.Component {
 // (function or class???)
@@ -27,7 +27,8 @@ render(){
 
        return (
         <div className="ListQuestionOnly" key={i}>
-          <h2> This survey is for "http://www.w3schools.com" </h2>
+          <Link to="/survey" className="nav-survey">Survey</Link>
+          <h2> Questions: </h2>
           <h2>{qID.q1}</h2>
 
           <h2>{qID.q2}</h2>

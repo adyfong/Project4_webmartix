@@ -54,17 +54,17 @@ render(){
              <QuestionRate selectedOption={this.props.selectedOption[1]}
                            setOption={this.props.setOption}
                            question_id='1'/>
-          <h1>{qID.q3}</h1>
+          <h2>{qID.q3}</h2>
               <QuestionRate selectedOption={this.props.selectedOption[2]}
                             setOption={this.props.setOption}
                             question_id='2'/>
 
-          <h1>{qID.q4}</h1>
+          <h2>{qID.q4}</h2>
               <QuestionRate selectedOption={this.props.selectedOption[3]}
                             setOption={this.props.setOption}
                             question_id='3'/>
 
-          <h1>{qID.q5}</h1>
+          <h2>{qID.q5}</h2>
               <QuestionRate selectedOption={this.props.selectedOption[4]}
                             setOption={this.props.setOption}
                             question_id='4'/>

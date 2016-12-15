@@ -97,26 +97,33 @@ setOption(question_id, value) {
 render() {
     return (
       <div className="container">
-
+      <div className="nav-box">
       <UrlLink className="nav-link"
               updateUrl={(e) => this.updateUrl(e)}
               searchUrl={this.searchUrl.bind(this)}
               holderUrl={this.state.holderUrl}
-
       />
 
-       <Link to="/chart" className="nav-link">Chart</Link>
+       <Link to="/chart" className="nav-chart">Chart</Link>
+       </div>
 
-       <iframe className="boxcontainer"
-       src={this.state.holderUrl} width="555" height="600"></iframe>
-       <QuestionList className="boxcontainer"
-       getQuestions={this.getQuestions.bind(this)}
-       questions={this.state.questions}
-       selectedOption={this.state.selectedOption}
-       setOption={this.setOption.bind(this)}
-       addAnswers={this.addAnswers.bind(this)}
-       />
 
+       <div className="main-box">
+
+         <iframe className="boxcontainer-left"
+         src={this.state.holderUrl} width="555" height="600">
+         </iframe>
+
+         <div className="boxcontainer-right">
+           <QuestionList
+           getQuestions={this.getQuestions.bind(this)}
+           questions={this.state.questions}
+           selectedOption={this.state.selectedOption}
+           setOption={this.setOption.bind(this)}
+           addAnswers={this.addAnswers.bind(this)}
+          />
+          </div>
+        </div>
 
       </div>
   );

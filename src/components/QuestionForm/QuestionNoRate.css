@@ -1,1 +1,18 @@
-
+.nav-survey {
+    position: absolute;
+   top: 15px;
+   left:10vw;
+   border: 2px solid #FAFAFA ;
+   border-radius: 5px;
+    padding: 10px 50px;
+    margin-left: 120;
+    background-color: transparent;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    color: #FAFAFA ;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
