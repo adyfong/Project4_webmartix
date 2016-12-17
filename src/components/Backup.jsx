@@ -205,3 +205,5 @@
 
 // module.exports = config;
 
+
+// import { render } from 'react-dom'

@@ -5,9 +5,8 @@
   "main": "app.js",
   "private": true,
   "engines": {
-   "node": "7.0.0"
- },
-
+    "node": "7.0.0"
+  },
   "scripts": {
     "clean": "rm -rf dist && rm -rf node_modules",
     "heroku-prebuild": "bash ./scripts/deployment_react.sh",
@@ -17,22 +16,21 @@
     "watch": "webpack -d --progress --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-
   "author": "Adeline",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "eslint": "^3.12.2",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
     "path": "^0.12.7",
     "pg-promise": "^5.4.7"
   },
-
   "devDependencies": {
     "react-d3-components": "^0.6.5",
     "d3": "^3.5.17",
     "rd3": "^0.7.4",
-    "react-dom": "^15.4.1",
+    "react-dom": "^15.3.2",
     "react-router": "^3.0.0",
     "babel": "^6.5.2",
     "babel-core": "^6.18.2",
@@ -54,7 +52,6 @@
     "html-webpack-plugin": "^2.24.1",
     "html-webpack-template": "^5.4.1",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3"

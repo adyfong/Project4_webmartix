@@ -14,7 +14,7 @@ const app    = express();
 const PORT   = process.argv[2] || process.env.PORT || 3000;
 
 //const Router required
-const adminRouter = require('./routes/index.js');
+//const adminRouter = require('./routes/index.js');
 const apiRouter = require('./routes/api.js');
 
 // set up some logging
@@ -33,7 +33,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use('/admin', adminRouter);
+//app.use('/admin', adminRouter);
 app.use('/api', apiRouter);
 
 // Let's go!

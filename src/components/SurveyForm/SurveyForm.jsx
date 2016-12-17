@@ -1,6 +1,5 @@
 import React  from 'react';
 import QuestionList  from '../QuestionForm/QuestionList.jsx';
-import AjaxAdapter from '../../helpers/AjaxAdapter';
 import UrlLink from '../UrlLink/UrlLink.jsx';
 import { Link } from 'react-router';
 import './SurveyForm.css';
@@ -110,10 +109,10 @@ render() {
 
        <div className="main-box">
 
-    {/*    <iframe className="boxcontainer-left"
+        <iframe className="boxcontainer-left"
          src={this.state.holderUrl} width="555" height="600">
          </iframe>
-*/}
+
 
          <div className="boxcontainer-right">
            <QuestionList
